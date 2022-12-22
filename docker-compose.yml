@@ -1,0 +1,16 @@
+version: '3'
+services:
+  front:
+    build: ./front
+    container_name: ssr-front
+    env_file:
+      - ./front/.env.local
+    ports:
+      - 3000:3000
+    depends_on:
+      - back
+  back:
+    build: ./back
+    container_name: ssr-back
+    ports:
+      - 4322:4432
